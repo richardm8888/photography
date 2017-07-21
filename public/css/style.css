@@ -1,0 +1,397 @@
+/*------------------------------------*\
+	COMMONS CLASSES
+\*------------------------------------*/
+
+h1, h2, h3, h4, h5, h6
+{
+    font-family: 'Roboto Slab', serif;
+}
+
+h1, h2, h3, h4, h5, h6
+{
+    margin-bottom: 1.1em;
+}
+
+.features,
+.blog,
+.gallery,
+.clients,
+.prefooter .container-fluid
+{
+    padding-top: 3.3em;
+    padding-bottom: 4.2em;
+}
+
+span.typcn::before, i.typcn::before
+{
+    font-size: 2em;
+}
+
+span.x2:before, i.x2:before
+{
+    font-size: 3.4em;
+}
+
+span.x3:before, i.x3:before
+{
+    font-size: 4.4em;
+}
+
+span.x4:before, i.x4:before
+{
+    font-size: 6em;
+}
+
+
+.justified-gallery>a>.caption, .justified-gallery>div>.caption {
+  font-size: 40px !important;
+  padding: 10px !important;
+  top: 0 !important;
+  text-align: center !important;
+  font-family: 'Roboto Slab', serif !important;
+}
+
+
+.justified-gallery>a>.caption>span, .justified-gallery>div>.caption>span {
+  display: block;
+  margin-top: 30%;
+}
+
+.carousel-inner > .item > img,
+.carousel-inner > .item > a > img {
+  width: 100%;
+  position:relative;
+  top:50%;
+  transform: translateY(-15%);
+}
+
+.carousel-inner > .item {
+  max-height: 100%;
+  overflow: hidden;
+}
+
+
+
+
+/*------------------------------------*\
+	HEADER
+\*------------------------------------*/
+
+header .container-fluid
+{
+    background-image: url('images/splash_image.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+    padding-top: 36px;
+}
+
+header.sub-page {
+  /*background-color: #dddddd;*/
+}
+
+header.sub-page .container-fluid {
+  background-image: none;
+  padding: 0;
+}
+
+header.sub-page .row.overlay {
+  width: 140%;
+  position: absolute;
+  bottom: 15%;
+  background-color: #000000;
+  opacity: 0.4;
+  margin-left: -20%;
+}
+
+header.sub-page .carousel h1 {
+  text-align: center;
+  color: #ffffff;
+  font-size: 50px;
+  text-transform: uppercase;
+  margin-top: 20px;
+  margin-bottom: 0;
+  opacity: 1;
+}
+
+header.sub-page .carousel h2 {
+  text-align: center;
+  color: #ffffff;
+  font-size: 25px;
+  opacity: 1;
+  margin-top: 0;
+}
+
+header.sub-page .carousel, header.sub-page .carousel-inner .item {
+  height: 100vh;
+  overflow: hidden;
+}
+
+header.sub-page .carousel-inner .item {
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+header.sub-page .carousel-inner .item#landscape1 {
+  background-image: url('images/splash_image.jpg');
+}
+
+header.sub-page .carousel-inner .item#landscape2 {
+  background-image: url('images/splash_image2.jpg');
+}
+
+
+header.sub-page .carousel .container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 99;
+  width: 100%;
+  height: 100%;
+  padding: 30px;
+}
+
+.hamburger
+{
+    font-size: 2.3em;
+    line-height: auto;
+    color: #000;
+}
+
+.hamburger:hover
+{
+  color: #FFF;
+  cursor: pointer;
+}
+
+
+.logo
+{
+    background: none;
+    border: 0px;
+    margin-bottom: 0;
+}
+
+.jumbotron
+{
+    background: none;
+    text-align: center;
+}
+
+.jumbotron h1,
+.jumbotron h2,
+.jumbotron h3,
+.jumbotron h4,
+.jumbotron h5,
+.jumbotron h6,
+.jumbotron small
+{
+    color: #FFFFFF;
+}
+
+.jumbotron p
+{
+    color: #FFFFFF;
+    margin-bottom: 5%;
+}
+
+
+/*------------------------------------*\
+	SECTIONS
+\*------------------------------------*/
+
+.number .container-fluid
+{
+    background-image: url('https://unsplash.it/3000/2000?image=685');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.opaline
+{
+    padding-top: 3em;
+    padding-bottom: 3em;
+    background-color: rgba(128, 215, 247, 0.660);
+}
+
+.opaline h1,
+.opaline h2,
+.opaline h3,
+.opaline h4,
+.opaline h5,
+.opaline h6,
+.opaline p
+{
+    color: #FFFFFF;
+}
+
+.opaline .boxes
+{
+    margin-top: 30px;
+    padding-top: 20px;
+    padding-bottom: 5px;
+    border: 1px solid #FFF;
+}
+
+.boxes .odometer.odometer-theme-default
+{
+  font-family: 'Roboto Slab', serif;
+}
+
+.story .container-fluid
+{
+    background-image: url('https://unsplash.it/3000/2000?image=531');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+section#gallery .container {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+section#gallery .row,
+section#gallery .gallery_image,
+section#gallery .gallery_image img {
+  margin: 0;
+  padding: 0;
+}
+
+section#gallery .row {
+  height: 300px;
+}
+
+section#gallery .gallery_image {
+  overflow: hidden;
+  height: 100%;
+  padding: 5px;
+}
+
+section#gallery .row .gallery_image:first-child {
+  padding-left: 0;
+}
+section#gallery .row .gallery_image:last-child {
+  padding-right: 0;
+}
+
+section#gallery .gallery_image img {
+  width: 100%;
+  min-height: 100%;
+}
+
+section.blog .container {
+  width: 100%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  height: 600px;
+}
+
+section.blog.amberley-cars .container {
+  background-image: url('images/vintage/vintage-23.jpg');
+}
+
+section.blog.vintage-bikes .container {
+  background-image: url('images/vintage/vintage-6.jpg');
+}
+
+section.blog.sheffield-park .container {
+}
+
+section.blog .container .row,
+section.blog .container .row > div {
+  position: relative;
+  height: 100%;
+}
+
+section.blog div.blog-overlay {
+  background-color: #ffffff;
+  opacity: 0.7;
+  z-index: 1;
+  height: 90%;
+  width: 90%;
+  margin: 5%;
+}
+
+section.blog div.content {
+  opacity: 1;
+  padding: 10px;
+  height: 90%;
+  width: 80%;
+  position: absolute;
+  top: 5%;
+  left: 10%;
+  overflow: hidden;
+}
+
+h2.blog-header {
+  margin-bottom: 10px;
+}
+h3.blog-sub-header {
+  margin-top: 0;
+  margin-bottom: 10px;
+  font-size: 30px;
+}
+h4.blog-date {
+  font-size: 20px;
+}
+img.blog-image {
+  margin-top: 40px;
+}
+
+
+.gallery
+{
+    background-color: #dddddd;
+}
+
+.prefooter .container-fluid
+{
+    background: linear-gradient(
+      rgba(33, 37, 43, 0.6),
+      rgba(33, 37, 43, 0.6)
+    ),
+
+    url(https://unsplash.it/4000/3000?image=528);
+}
+
+.prefooter h1,
+.prefooter h2,
+.prefooter h3,
+.prefooter h4,
+.prefooter h5,
+.prefooter h6,
+.prefooter p
+{
+    color: #FFFFFF;
+}
+
+/*------------------------------------*\
+	FOOTER
+\*------------------------------------*/
+
+footer
+{
+    background-color: rgba(36, 50, 59, 1);
+    padding-top: 2em;
+    padding-bottom: 1.2em;
+}
+
+footer h1,
+footer h2,
+footer h3,
+footer h4,
+footer h5,
+footer h6,
+footer p
+{
+    color: #FFFFFF;
+}
+
+.social
+{
+    padding-top: 50px;
+}

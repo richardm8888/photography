@@ -14,7 +14,7 @@ class IndexController extends Controller
         'user_id' => '150429213@N04',
         'per_page' => 20,
         'page' => 1,
-        'primary_photo_extras' => 'url_m'
+        'primary_photo_extras' => 'url_m,url_l'
       ]);
 
       return view('home', [
@@ -29,7 +29,7 @@ class IndexController extends Controller
         echo "</a>";
       }
       */
-      
+
       //$flickr->echoThis('helloworld');
     }
 }
