@@ -47,7 +47,7 @@ return [
     'connections' => [
 
         'sqlite' => [
-            'driver' => 'sqlite',
+            'driver' => 'sqlite', 
             'database' => env('DB_DATABASE', database_path('database.sqlite')),
             'prefix' => '',
         ],
@@ -62,6 +62,20 @@ return [
             'charset' => 'utf8',
             'collation' => 'utf8_unicode_ci',
             'prefix' => '',
+            'strict' => false,
+            'engine' => null,
+        ],
+
+        'wordpress' => [
+            'driver' => 'mysql',
+            'host' => env('BLOG_DB_HOST', 'localhost'),
+            'port' => env('BLOG_DB_PORT', '3306'),
+            'database' => env('BLOG_DB_DATABASE', 'blog'),
+            'username' => env('BLOG_DB_USERNAME', 'blog'),
+            'password' => env('BLOG_DB_PASSWORD', ''),
+            'charset' => 'utf8',
+            'collation' => 'utf8_unicode_ci',
+            'prefix' => 'wp_',
             'strict' => false,
             'engine' => null,
         ],

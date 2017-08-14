@@ -42,6 +42,34 @@ span.x4:before, i.x4:before
     font-size: 6em;
 }
 
+nav {
+  -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=80)";
+  filter: alpha(opacity=80);
+  opacity: 0.8;
+}
+
+.navbar-brand img {
+  height: 25px;
+}
+
+#logo {
+  position: absolute;
+  top: 20px;
+  z-index: 100;
+}
+
+#logo img {
+  width: 100%;
+}
+
+#logo a.nav_link {
+  display: block;
+  float: right;
+  color: #000000;
+  font-size: 22px;
+  margin: 0 20px;
+}
+
 
 .justified-gallery>a>.caption, .justified-gallery>div>.caption {
   font-size: 40px !important;
@@ -49,20 +77,48 @@ span.x4:before, i.x4:before
   top: 0 !important;
   text-align: center !important;
   font-family: 'Roboto Slab', serif !important;
+  cursor: pointer;
 }
 
 
 .justified-gallery>a>.caption>span, .justified-gallery>div>.caption>span {
   display: block;
-  margin-top: 30%;
+  margin-top: 25%;
+}
+
+#topCarousel {
+  height: 100%;
+}
+
+div.carouselTitle {
+  text-transform: uppercase;
+  height: 55px;
+  padding: 15px;
+  box-sizing: border-box;
+  position: fixed;
+  top: 50px;
+  left: 0;
+  text-align: left;
+  font-size: 25px;
+  z-index: 1;
+  background-color: #222222;
+  -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=80)";
+  filter: alpha(opacity=80);
+  opacity: 0.8;
+  line-height: 25px;
+  color: #ffffff;
+  border-right: 1px solid #080808;
+  border-bottom: 1px solid #080808;
+}
+
+div.carouselTitle span {
+  font-size: 16px;
 }
 
 .carousel-inner > .item > img,
 .carousel-inner > .item > a > img {
   width: 100%;
-  position:relative;
-  top:50%;
-  transform: translateY(-15%);
+  position: relative;
 }
 
 .carousel-inner > .item {
@@ -290,14 +346,6 @@ section.blog .container {
   height: 600px;
 }
 
-section.blog.amberley-cars .container {
-  background-image: url('images/vintage/vintage-23.jpg');
-}
-
-section.blog.vintage-bikes .container {
-  background-image: url('images/vintage/vintage-6.jpg');
-}
-
 section.blog.sheffield-park .container {
 }
 
@@ -311,7 +359,7 @@ section.blog div.blog-overlay {
   background-color: #ffffff;
   opacity: 0.7;
   z-index: 1;
-  height: 90%;
+  height: 45%;
   width: 90%;
   margin: 5%;
 }
@@ -319,7 +367,7 @@ section.blog div.blog-overlay {
 section.blog div.content {
   opacity: 1;
   padding: 10px;
-  height: 90%;
+  height: 45%;
   width: 80%;
   position: absolute;
   top: 5%;
@@ -342,6 +390,33 @@ img.blog-image {
   margin-top: 40px;
 }
 
+section#tags {
+  font-size: 20px;
+  margin: 10px 0 30px 0;
+}
+
+section#tags p {
+  line-height: 30px;
+}
+
+section#tags p .label {
+  line-height: inherit;
+}
+
+section#related_posts {
+  padding-top: 50px;
+  min-height: 90%;
+}
+
+.label.label-default a {
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.label.label-default:hover a {
+  color: #ffffff;
+  text-decoration: underline;
+}
 
 .gallery
 {
@@ -375,9 +450,8 @@ img.blog-image {
 
 footer
 {
-    background-color: rgba(36, 50, 59, 1);
-    padding-top: 2em;
-    padding-bottom: 1.2em;
+    background-color: #222222;
+    min-height: 75px;
 }
 
 footer h1,
@@ -391,7 +465,119 @@ footer p
     color: #FFFFFF;
 }
 
+footer p {
+  font-size: 16px;
+  padding: 0 20px;
+  line-height: 75px;
+  margin: 0;
+}
+
+footer img.social_icon {
+  width: 40px;
+  height: 40px;
+  margin-left: 10px;
+}
+
+footer img.logo {
+  height: 30px;
+}
+
+footer ul {
+  text-align: center;
+  list-style-type: none;
+  color: #ffffff;
+}
+
 .social
 {
     padding-top: 50px;
+}
+
+
+/* RESPONSIVE */
+
+@media ( max-width: 400px ) {
+  .navbar-brand img {
+    height: 18px;
+  }
+
+  div.carouselTitle {
+    width: 100%;
+    font-size: 20px;
+    text-align: center;
+  }
+
+  section.blog {
+    padding-top: 30px;
+    padding-bottom: 30px;
+  }
+
+  section.blog .container {
+    height: 70%;
+  }
+
+  section.blog div.blog-overlay, section.blog div.content {
+    height: 90%;
+  }
+
+  section.blog div.content {
+    top: 0;
+  }
+
+  h2.blog-header {
+    margin: 10px auto;
+    font-size: 25px;
+  }
+
+  h4.blog-date {
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+
+  .justified-gallery>a>.caption, .justified-gallery>div>.caption {
+    display: block !important;
+    font-size: 18px !important;
+    -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=70)";
+    filter: alpha(opacity=70);
+    opacity: 0.7;
+    height: 45px;
+    top: auto !important;
+  }
+
+  .justified-gallery>a>.caption>span, .justified-gallery>div>.caption>span {
+    margin-top: 0;
+  }
+
+  #tags h3 {
+    text-align: center;
+  }
+
+  footer img.social_icon {
+    width: 30px;
+    height: 30px;
+    margin-left: 5px
+  }
+
+  footer p {
+    padding: 0;
+    font-size: 14px;
+  }
+
+}
+
+
+/* MAGNIFIC POPUP OVERRIDES */
+.mfp-img {
+  max-height: 100vh !important;
+  height: initial;
+  width: initial;
+}
+
+/* BOOTSTRAP OVERRIDES */
+.navbar-right {
+  margin-right: 0 !important;
+}
+
+navbar-collapse.collapse.in {
+
 }

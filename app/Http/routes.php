@@ -13,3 +13,4 @@
 
 Route::get('/', 'IndexController@indexAction');
 Route::get('/gallery/{id}', 'GalleryController@galleryAction');
+Route::get('/tags/{tag}', 'TagController@tagAction');

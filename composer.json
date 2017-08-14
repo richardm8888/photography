@@ -8,7 +8,8 @@
         "php": ">=5.5.9",
         "laravel/framework": "5.2.*",
         "jeroen-g/flickr": "^1.0",
-        "twbs/bootstrap": "^3.3"
+        "twbs/bootstrap": "^3.3",
+        "jgrossi/corcel": "^1.4"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
@@ -45,7 +46,8 @@
             "Illuminate\\Foundation\\ComposerScripts::postUpdate",
             "php artisan optimize",
             "mkdir -p public/bootstrap",
-            "cp -R vendor/twbs/bootstrap/dist/ public/bootstrap/"
+            "cp -R vendor/twbs/bootstrap/dist/ public/bootstrap/",
+            "cp -R vendor/twbs/bootstrap/js/ public/bootstrap/"
         ]
     },
     "config": {
