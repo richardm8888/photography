@@ -578,6 +578,11 @@ footer ul {
   margin-right: 0 !important;
 }
 
-navbar-collapse.collapse.in {
+table {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 14px;
+}
 
+table td {
+  padding: 0px 20px 10px 20px;
 }

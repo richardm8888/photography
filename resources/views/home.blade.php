@@ -49,9 +49,14 @@
                 <div class="hidden-xs col-sm-6 col-md-4 text-center wow fadeInUp" data-wow-delay="500ms">
                     <span class="typcn typcn-bookmark x3"></span>
                     <h4>Latest Posts</h4>
+                    <table width="100%">
                     @foreach ($blogs as $b)
-                    <p>{{ date('d/m/Y', strtotime($b['date'])) }} - <a href="/gallery/{{ $b['slug'] }}">{{ $b['title'] }}</a></p>
+                    <tr>
+                      <td style="text-align: center;">{{ date('d/m/Y', strtotime($b['date'])) }}</td>
+                      <td style="text-align: left;"><a href="/gallery/{{ $b['slug'] }}">{{ $b['title'] }}</a></td>
+                    </tr>
                     @endforeach
+                    </table>
                 </div>
                 <div class="hidden-xs col-sm-6 col-md-4">
                     <a class="twitter-timeline" data-lang="en" data-width="100%" data-height="300" data-theme="light" data-link-color="#2B7BB9" href="https://twitter.com/mossphotosuk">Tweets by mossphotosuk</a>

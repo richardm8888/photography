@@ -103,7 +103,9 @@
             <div class="col-sm-12 col-md-6">
                 <p class="text-right">
                     &copy; Moss Photography <?php echo date("Y"); ?>
-                    <img class="social_icon" src="/img/icons/facebook.png" />
+                    <a class="_blank" href="https://www.facebook.com/mossphotosuk/">
+                      <img class="social_icon" src="/img/icons/facebook.png" />
+                    </a>
                     <a target="_blank" href="https://twitter.com/mossphotosuk">
                       <img class="social_icon" src="/img/icons/twitter.png" />
                     </a>
