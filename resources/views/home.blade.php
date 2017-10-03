@@ -66,6 +66,7 @@
         </div>
     </section>
 
+    @if ( isset($cover_blogs[0]) )
     <section
       class="blog sheffield-park wow fadeInUp"
       data-wow-delay="300ms"
@@ -89,6 +90,7 @@
             </div>
         </div>
     </section>
+    @endif
 
     <section id="photos" class="wow fadeInUp" data-wow-delay="300ms">
         <div class="container">
@@ -98,9 +100,9 @@
             <div class="row">
                 <div class="justifiedGallery">
                     @foreach ($websiteGalleries as $g)
-                        <a href='/gallery/{{ $g->slug }}'>
-                          <img src='{{ $g->meta->fifu_image_url }}' />
-                          <div class="caption"><span>{{ $g->post_title }}</span></div>
+                        <a href='/gallery/{{ $g['slug'] }}'>
+                          <img src='{{ $g['img'] }}' />
+                          <div class="caption"><span>{{ $g['post_title'] }}</span></div>
                         </a>
                     @endforeach
                 </div>
@@ -108,6 +110,7 @@
         </div>
     </section>
 
+    @if ( isset($cover_blogs[1]) )
     <section
       class="blog wow fadeInUp"
       data-wow-delay="300ms"
@@ -132,4 +135,6 @@
             </div>
         </div>
     </section>
+    @endif
+
 @endsection

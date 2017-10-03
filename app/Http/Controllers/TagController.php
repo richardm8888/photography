@@ -33,6 +33,7 @@ class TagController extends Controller
 
 
       return view('tag', [
+        'meta_title' => 'Moss Photography - ' . $slug,
         'title' => $slug,
         'related' => $related,
       ]);

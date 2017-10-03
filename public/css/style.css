@@ -90,6 +90,10 @@ nav {
   height: 100%;
 }
 
+#topCarousel.empty {
+  height: 105px;
+}
+
 div.carouselTitle {
   text-transform: uppercase;
   height: 55px;

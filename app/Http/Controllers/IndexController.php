@@ -11,19 +11,18 @@ class IndexController extends Controller
     public function indexAction(){
       $flickr = new Flickr(new FlickrAPI(env('FLICKR_API'), 'php_serial')); //, env('FLICKR_SECRET')));
 
-      $websiteGalleries = Post::status('private')->get();
+      $mainGalleries = Post::status('private')->get();
 
-      /*$collections = $flickr->request('flickr.collections.getTree', [
-        'user_id' => '150429213@N04',
-      ]);
       $websiteGalleries = [];
-      foreach ( $collections->collections['collection'] as $c ) {
-        if ( $c['title'] == 'Website Galleries' ) {
-          foreach ( $c['set'] as $gallery ) {
-            $websiteGalleries[] = $gallery['id'];
-          }
+      foreach ( $mainGalleries as $mg ) {
+        if ( isset($mg->attachment[0]) ) {
+          $websiteGalleries[] = [
+            'slug' => $mg->slug,
+            'post_title' => $mg->post_title,
+            'img' => $mg->attachment[0]->guid,
+          ];
         }
-      }*/
+      }
 
       $carousel = $flickr->request('flickr.photos.search', [
         'user_id' => '150429213@N04',
@@ -32,39 +31,51 @@ class IndexController extends Controller
         'extras' => 'url_l'
       ]);
 
-      /*$galleries = $flickr->request('flickr.photosets.getList', [
+      $carousel = $flickr->request('flickr.photosets.getPhotos', [
         'user_id' => '150429213@N04',
-        'per_page' => 20,
+        'photoset_id' => env('FLICKR_COVER_PHOTO_ALBUMID'),
+        'per_page' => 10,
         'page' => 1,
-        'primary_photo_extras' => 'url_m,url_l'
-      ]);*/
+        'extras' => 'url_l,url_o'
+      ]);
 
-      $posts = Post::type('post')->status('publish')->get();
+      $posts = [];
+      $rawPosts = Post::type('post')->status('publish')->get();
+      foreach ( $rawPosts as $rp ) {
+
+        $img = false;
+        if ( isset($rp->attachment[0]) ) {
+            $img = $rp->attachment[0]->guid;
+        }
+        $posts[] = [
+          'title' => $rp->post_title,
+          'slug' => $rp->slug,
+          'gallery_id' => $rp->meta->gallery_id,
+          'img'   => $img, //$rp->meta->fifu_image_url,
+          'snippet' => $rp->meta->snippet,
+          'date'  => date("dS F Y", strtotime($rp->post_date)),
+          'rawDate' => $rp->post_date,
+        ];
+      }
+      usort($posts, [$this, 'sortPostsByDate']);
+
+
       $cover_blogs = [];
       $blogs = [];
       foreach ( $posts as $p ) {
-        if ( $p->meta->fifu_image_url ) {
-          $cover_blogs[] = [
-            'title' => $p->post_title,
-            'slug' => $p->slug,
-            'gallery_id' => $p->meta->gallery_id,
-            'img'   => $p->meta->fifu_image_url,
-            'snippet' => $p->meta->snippet,
-            'date'  => date("dS F Y", strtotime($p->post_date)),
-          ];
+        if ( $p['img'] && count($cover_blogs) < 2 ) {
+          $cover_blogs[] = $p;
         } else {
-          $blogs[] = [
-            'title' => $p->post_title,
-            'slug' => $p->slug,
-            'gallery_id' => $p->meta->gallery_id,
-            'date'  => date("dS F Y", strtotime($p->post_date)),
-          ];
+          if ( count($blogs) < 7 ) {
+            $blogs[] = $p;
+          }
         }
       }
 
       return view('home', [
+        'meta_title' => 'Moss Photography',
         //'galleries' => $galleries->photosets['photoset'],
-        'carousel'  => $carousel->photos['photo'],
+        'carousel'  => $carousel->photoset['photo'],
         'cover_blogs' => $cover_blogs,
         'blogs'     => $blogs,
         'websiteGalleries' => $websiteGalleries,
@@ -80,5 +91,13 @@ class IndexController extends Controller
       */
 
       //$flickr->echoThis('helloworld');
+    }
+
+    function sortPostsByDate($a, $b) {
+      if ($a['rawDate'] == $b['rawDate']) {
+        return 0;
+      } else {
+        return $a['rawDate'] < $b['rawDate'] ? 1 : -1;
+      }
     }
 }

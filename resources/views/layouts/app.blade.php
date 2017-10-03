@@ -1,8 +1,8 @@
 <html>
     <head>
-        <title>@yield('title')</title>
+        <title>{{ $meta_title }}</title>
 
-        <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+        <META NAME="ROBOTS" CONTENT="{{ $robots }}">
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
         <!-- Bootstrap core CSS -->
@@ -27,16 +27,18 @@
         <link href='https://fonts.googleapis.com/css?family=Raleway:300,700,900,500' rel='stylesheet' type='text/css'>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/typicons/2.0.7/typicons.min.css">
 
+        @if ( $ga_account )
         <script>
           (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
           (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
           m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
           })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
 
-          ga('create', 'UA-103804502-1', 'auto');
+          ga('create', '{{ $ga_account }}', 'auto');
           ga('send', 'pageview');
 
         </script>
+        @endif
 
         <script type="text/javascript">
           $(document).ready(function() {

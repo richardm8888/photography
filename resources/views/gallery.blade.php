@@ -33,11 +33,12 @@
 @section('content')
     @parent
 
-    @include('carousel', [
-      'carousel' => $carousel,
-      'single' => true,
-      'title' => $title,
-    ])
+
+      @include('carousel', [
+        'carousel' => $carousel,
+        'single' => true,
+        'title' => $title,
+      ])
 
     <section id="photos" class="wow fadeInUp" data-wow-delay="300ms">
         <div class="container">
@@ -45,9 +46,45 @@
                 <div class="justifiedGallery">
                     @foreach ($displayPhotos as $p)
                       <a rel='gallery' class='galleryImage' href='{{ $p['url_l'] }}'>
+                        @if ($mobile)
+                        <img src='{{ $p['url_s'] }}' />
+                        @else
                         <img src='{{ $p['url_m'] }}' />
+                        @endif
                       </a>
                     @endforeach
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <nav style="text-align: center;" aria-label="Page navigation">
+      <ul class="pagination">
+        @if ( $page > 1 )
+        <li>
+          <a href="?page={{ $page-1 }}" aria-label="Previous">
+            <span aria-hidden="true">&laquo;</span>
+          </a>
+        </li>
+        @endif
+        @foreach ( $pages as $p )
+        <li @if ($page == $p) class="active" @endif><a href="?page={{ $p }}">{{ $p }}</a></li>
+        @endforeach
+        @if ( $page < count($pages) )
+        <li>
+          <a href="?page={{ $page+1 }}" aria-label="Next">
+            <span aria-hidden="true">&raquo;</span>
+          </a>
+        </li>
+        @endif
+      </ul>
+    </nav>
+
+    <section style="margin: 20px auto;">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12">
+                    <p>{{ $content }}</p>
                 </div>
             </div>
         </div>
