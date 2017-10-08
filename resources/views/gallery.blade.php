@@ -82,7 +82,7 @@
     </nav>
     @endif
 
-    @if ($content)
+    @if (false)
     <section style="margin: 20px auto;">
         <div class="container">
             <div class="row">
