@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use JeroenG\Flickr\Flickr;
 use JeroenG\Flickr\Api as FlickrAPI;
 use Corcel\Post as Post;
+use Corcel\Page;
 
 class IndexController extends Controller
 {
@@ -66,16 +67,24 @@ class IndexController extends Controller
         if ( $p['img'] && count($cover_blogs) < 2 ) {
           $cover_blogs[] = $p;
         } else {
-          if ( count($blogs) < 7 ) {
+          if ( count($blogs) < 5 ) {
             $blogs[] = $p;
           }
         }
       }
 
+      $about = Page::slug('about')->first();
+      $carousel_images = Page::slug('home-carousel')->first();
+      $carousel = [];
+      foreach ( $carousel_images->attachment as $img ) {
+        $carousel[] = ['url_l' => $img->guid];
+      }
+
       return view('home', [
         'meta_title' => 'Moss Photography',
         //'galleries' => $galleries->photosets['photoset'],
-        'carousel'  => $carousel->photoset['photo'],
+        'carousel'  => $carousel, //->photoset['photo'],
+        'about_me' => $about->post_content,
         'cover_blogs' => $cover_blogs,
         'blogs'     => $blogs,
         'websiteGalleries' => $websiteGalleries,

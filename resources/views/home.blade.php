@@ -40,13 +40,12 @@
     <section id="about">
         <div class="container">
             <div class="row features">
-                <div class="col-xs-12 col-sm-6 col-md-4 text-center wow fadeInUp" data-wow-delay="100ms">
+                <div class="col-xs-12 col-sm-6 col-md-4 text-center">
                     <span class="typcn typcn-pencil x3"></span>
                     <h4>About Me</h4>
-                    <p>I'm a photography enthusiast based in West Sussex, UK, with a keen interest in Landscape and Wildlife photography.</p>
-                    <p>Although more comfortable with those subjects, I'm always looking for ways to improve and broaden my skillset.</p>
+                    {!! $about_me !!}
                 </div>
-                <div class="hidden-xs col-sm-6 col-md-4 text-center wow fadeInUp" data-wow-delay="500ms">
+                <div class="col-xs-12 col-sm-6 col-md-4 text-center wow fadeInUp" data-wow-delay="500ms">
                     <span class="typcn typcn-bookmark x3"></span>
                     <h4>Latest Posts</h4>
                     <table width="100%">
@@ -56,6 +55,11 @@
                       <td style="text-align: left;"><a href="/gallery/{{ $b['slug'] }}">{{ $b['title'] }}</a></td>
                     </tr>
                     @endforeach
+                    <tr>
+                      <td></td>
+                      <td style="padding-top: 20px;">
+                        <a href="/galleries">More posts >></a>
+                      </td>
                     </table>
                 </div>
                 <div class="hidden-xs col-sm-6 col-md-4">
@@ -68,8 +72,7 @@
 
     @if ( isset($cover_blogs[0]) )
     <section
-      class="blog sheffield-park wow fadeInUp"
-      data-wow-delay="300ms"
+      class="blog sheffield-park"
       style="background-repeat: no-repeat;
       background-size: cover;
       background-position: center;
@@ -92,7 +95,7 @@
     </section>
     @endif
 
-    <section id="photos" class="wow fadeInUp" data-wow-delay="300ms">
+    <section id="photos" style="margin-bottom: 20px;">
         <div class="container">
             <h2 class="text-center" style="margin-bottom: 10px;">
               <span class="typcn typcn-image-outline"></span> Galleries
@@ -112,8 +115,7 @@
 
     @if ( isset($cover_blogs[1]) )
     <section
-      class="blog wow fadeInUp"
-      data-wow-delay="300ms"
+      class="blog"
       style="background-repeat: no-repeat;
       background-size: cover;
       background-position: center;

@@ -10,6 +10,35 @@ use Cache;
 
 class GalleryController extends Controller
 {
+    public function galleriesAction(Request $req){
+      $flickr = new Flickr(new FlickrAPI(env('FLICKR_API'), 'php_serial'));
+
+      $posts = Post::type('post')->status('publish')->orderBy('post_date', 'desc')->paginate(9);
+      $displayPosts = [];
+      foreach ($posts as $p) {
+
+        $photos = $flickr->request('flickr.photosets.getPhotos', [
+          'user_id' => '150429213@N04',
+          'photoset_id' => $p->meta->gallery_id,
+          'per_page' => 1,
+          'page' => 1,
+          'extras' => 'url_sq,url_t,url_s,url_m,url_l,url_o'
+        ]);
+
+        $displayPosts[] = [
+          'title' => $p->post_title,
+          'slug'  => $p->slug,
+          'img' => $photos->photoset['photo'][0]['url_m'],
+        ];
+      }
+      return view('galleries', [
+        'meta_title' => 'Moss Photography - Galleries',
+        'posts' => $posts,
+        'displayPosts' => $displayPosts,
+      ]);
+
+    }
+
     public function galleryAction(Request $req, $slug){
 
       $page = $req->get('page') ?: 1;
@@ -17,9 +46,12 @@ class GalleryController extends Controller
       if (Cache::has($page_cache_key)) {
         $view = Cache::get($page_cache_key);
       } else {
-        $flickr = new Flickr(new FlickrAPI(env('FLICKR_API'), 'php_serial')); //, env('FLICKR_SECRET')));
+        $flickr = new Flickr(new FlickrAPI(env('FLICKR_API'), 'php_serial'));
 
         $post = Post::slug($slug)->first();
+        if ( !$post ) {
+          return redirect('/galleries');
+        }
         $id = $post->meta->gallery_id;
 
         $postTags = $post->taxonomies()->get();
@@ -101,7 +133,7 @@ class GalleryController extends Controller
           'title' => $post->post_title,
           'tags' => $tags,
           'related' => $related,
-          'content' => $post->meta->snippet,
+          'content' => $post->post_status == 'private' ? false : $post->meta->snippet,
           'pages' => $pages,
           'page' => $page,
         ];

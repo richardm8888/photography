@@ -46,11 +46,11 @@
                 <div class="justifiedGallery">
                     @foreach ($displayPhotos as $p)
                       <a rel='gallery' class='galleryImage' href='{{ $p['url_l'] }}'>
-                        @if ($mobile)
-                        <img src='{{ $p['url_s'] }}' />
-                        @else
+                        @desktop
                         <img src='{{ $p['url_m'] }}' />
-                        @endif
+                        @elsedesktop
+                        <img src='{{ $p['url_s'] }}' />
+                        @enddesktop
                       </a>
                     @endforeach
                 </div>
@@ -58,6 +58,7 @@
         </div>
     </section>
 
+    @if ( count($pages) > 1 )
     <nav style="text-align: center;" aria-label="Page navigation">
       <ul class="pagination">
         @if ( $page > 1 )
@@ -79,16 +80,23 @@
         @endif
       </ul>
     </nav>
+    @endif
 
+    @if ($content)
     <section style="margin: 20px auto;">
         <div class="container">
             <div class="row">
                 <div class="col-xs-12">
-                    <p>{{ $content }}</p>
+                  <div class="panel panel-default">
+                      <div class="panel-body">
+                          {{ $content }}
+                      </div>
+                  </div>
                 </div>
             </div>
         </div>
     </section>
+    @endif
 
     <section id="tags">
         <div class="container">
