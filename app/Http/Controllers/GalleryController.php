@@ -13,7 +13,7 @@ class GalleryController extends Controller
     public function galleriesAction(Request $req){
       $flickr = new Flickr(new FlickrAPI(env('FLICKR_API'), 'php_serial'));
 
-      $posts = Post::type('post')->status('publish')->orderBy('post_date', 'desc')->paginate(9);
+      $posts = Post::type('post')->status('publish')->orderBy('post_date', 'desc')->paginate(12);
       $displayPosts = [];
       foreach ($posts as $p) {
 

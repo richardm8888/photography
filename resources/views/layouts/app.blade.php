@@ -88,6 +88,7 @@
               <li class="active"><a href="/">Home</a></li>
               <li><a href="/#about">About me</a></li>
               <li><a href="/#photos">Galleries</a></li>
+              <li><a href="/galleries">Posts</a></li>
             </ul>
           </div>
 

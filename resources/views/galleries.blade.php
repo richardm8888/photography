@@ -33,7 +33,7 @@
     <section id="related_posts" class="wow fadeInUp" data-wow-delay="300ms">
         <div class="container">
             <h2 class="text-center" style="margin-bottom: 10px;">
-              <span class="typcn typcn-image-outline"></span> Galleries
+              <span class="typcn typcn-bookmark"></span> Posts
             </h2>
             <div class="row">
                 <div class="justifiedGallery">
