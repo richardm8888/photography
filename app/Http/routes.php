@@ -15,3 +15,4 @@ Route::get('/', 'IndexController@indexAction');
 Route::get('/galleries', 'GalleryController@galleriesAction');
 Route::get('/gallery/{id}', 'GalleryController@galleryAction');
 Route::get('/tags/{tag}', 'TagController@tagAction');
+Route::get('/sitemap.xml', 'SitemapController@xmlAction');
