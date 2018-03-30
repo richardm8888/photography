@@ -9,10 +9,12 @@
         <link href="/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
 
         <!-- Custom styles for this template -->
-        <link href="/css/style.css" rel="stylesheet">
         <link rel="stylesheet" href="/css/justifiedGallery.min.css">
         <link rel="stylesheet" href="/css/swipebox.min.css">
+        <link href="//cdn-images.mailchimp.com/embedcode/horizontal-slim-10_7.css" rel="stylesheet" type="text/css">
 
+        <link href="/css/style.css" rel="stylesheet">
+        
         <script
           src="https://code.jquery.com/jquery-3.2.1.min.js"
           integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
@@ -42,6 +44,11 @@
 
         <script type="text/javascript">
           $(document).ready(function() {
+
+            $("#signupform").submit(function(){
+
+                return false;
+            });
 
             $('.navbar-toggle').click(function(){
               if ( $(this).hasClass('collapsed') ) {
@@ -97,24 +104,34 @@
         @yield('content')
 
         <footer>
-            <div class="hidden-xs hidden-sm col-md-6">
+            <div class="hidden-xs hidden-sm hidden-md hidden-lg">
                 <p>
                     &nbsp;
                     <img class="logo" src="/img/moss_logo_white.png" />
                 </p>
             </div>
-            <div class="col-sm-12 col-md-6">
-                <p class="text-right">
-                    &copy; Moss Photography <?php echo date("Y"); ?>
-                    <a class="_blank" href="https://www.facebook.com/mossphotosuk/">
-                      <img class="social_icon" src="/img/icons/facebook.png" />
-                    </a>
-                    <a target="_blank" href="https://twitter.com/mossphotosuk">
-                      <img class="social_icon" src="/img/icons/twitter.png" />
-                    </a>
-                    <a target="_blank" href="https://www.flickr.com/photos/150429213@N04/">
-                      <img class="social_icon" src="/img/icons/flickr.png" />
-                    </a>
+            <div class="col-xs-12 col-sm-8 col-md-6 col-lg-6">
+                @include('contactform')
+            </div>
+            <div class="col-xs-12 col-sm-4 col-md-6 col-lg-6">
+                <p id="bottomLogo">
+                    <img class="logo" src="/img/moss_logo_white.png" />
+                </p>
+                <p id="copyright">&copy; Moss Photography <?php echo date("Y"); ?></p>
+            </div>
+
+            <div id="social" class="col-xs-12">
+                <p class="text-center">
+
+                  <a class="_blank" href="https://www.facebook.com/mossphotosuk/">
+                    <img class="social_icon" src="/img/icons/facebook.png" />
+                  </a>
+                  <a target="_blank" href="https://twitter.com/mossphotosuk">
+                    <img class="social_icon" src="/img/icons/twitter.png" />
+                  </a>
+                  <a target="_blank" href="https://www.flickr.com/photos/150429213@N04/">
+                    <img class="social_icon" src="/img/icons/flickr.png" />
+                  </a>
                 </p>
             </div>
         </footer>

@@ -80,6 +80,11 @@ nav {
   cursor: pointer;
 }
 
+@media (max-width: 600px) {
+  .justified-gallery>a>.caption, .justified-gallery>div>.caption {
+    font-size: 20px !important;
+  }
+}
 
 .justified-gallery>a>.caption>span, .justified-gallery>div>.caption>span {
   display: block;
@@ -350,6 +355,7 @@ section.blog .container {
   height: 600px;
 }
 
+
 section.blog.sheffield-park .container {
 }
 
@@ -392,6 +398,20 @@ h4.blog-date {
 }
 img.blog-image {
   margin-top: 40px;
+}
+
+
+@media (max-width: 700px) {
+  section.blog { display: none; }
+
+  section.blog .container {
+    height: 200px;
+  }
+
+  section.blog div.content,
+  section.blog div.blog-overlay {
+    display: none;
+  }
 }
 
 section#tags {
@@ -455,7 +475,8 @@ section#related_posts {
 footer
 {
     background-color: #222222;
-    min-height: 75px;
+    min-height: 85px;
+    overflow: hidden;
 }
 
 footer h1,
@@ -472,7 +493,6 @@ footer p
 footer p {
   font-size: 16px;
   padding: 0 20px;
-  line-height: 75px;
   margin: 0;
 }
 
@@ -483,13 +503,36 @@ footer img.social_icon {
 }
 
 footer img.logo {
-  height: 30px;
+    width: 90%;
+    margin: 10px 0;
+}
+
+#copyright, #bottomLogo { text-align: right; }
+
+
+@media (max-width: 767px) {
+  footer img.logo {
+    width: 50%;
+  }
+
+  #copyright, #bottomLogo { text-align: center; }
+
+}
+
+@media (max-width: 600px) {
+  footer img.logo {
+    width: 80%;
+  }
 }
 
 footer ul {
   text-align: center;
   list-style-type: none;
   color: #ffffff;
+}
+
+#social {
+  margin: 20px 0;
 }
 
 .social
@@ -516,10 +559,6 @@ footer ul {
     padding-bottom: 30px;
   }
 
-  section.blog .container {
-    height: 70%;
-  }
-
   section.blog div.blog-overlay, section.blog div.content {
     height: 90%;
   }
@@ -540,7 +579,7 @@ footer ul {
 
   .justified-gallery>a>.caption, .justified-gallery>div>.caption {
     display: block !important;
-    font-size: 18px !important;
+    font-size: 15px !important;
     -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=70)";
     filter: alpha(opacity=70);
     opacity: 0.7;
@@ -589,4 +628,64 @@ table {
 
 table td {
   padding: 0px 20px 10px 20px;
+}
+
+
+/* MAILCHIMP */
+#mc_embed_signup{
+  clear:left;
+  width:100%;
+  margin-top: 10px;
+}
+#mc_embed_signup form {
+  text-align: left !important;
+  margin-bottom: 0;
+  padding: 10px 0px 0px 0px;
+}
+#mc_embed_signup label {
+  float: left;
+  color: #ffffff;
+  font-size: 16px;
+  line-height: 30px;
+  font-weight: normal !important;
+  padding-right: 20px;
+  padding-bottom: 0 !important;
+}
+#mc_embed_signup input.email {
+  width: 220px !important;
+}
+
+#mc_embed_signup div.mce_inline_error {
+  background: transparent !important;
+  padding-left: 135px !important;
+}
+
+#mc_embed_signup .button {
+  background-color: #337ab7 !important;
+  color: #ffffff !important;
+}
+
+#mc_embed_signup div#mce-responses {
+  margin: 0 !important;
+    padding: 0 !important;
+}
+
+#mc_embed_signup div.response {
+  width: 100% !important;
+  margin: 0 !important;
+}
+
+#mc_embed_signup #mce-success-response {
+  color: #ffffff !important;
+}
+
+@media (max-width: 768px) {
+  #mc_embed_signup .button {
+      width: auto !important;
+      margin: 0;
+  }
+
+  #mc_embed_signup { text-align: center; margin-bottom: 20px; }
+  #mc_embed_signup label { float: none; }
+  #mc_embed_signup form { text-align: center !important; }
 }
